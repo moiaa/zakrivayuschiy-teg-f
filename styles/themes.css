@@ -4,3 +4,75 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+:root.theme-light {
+  --accent-color: #000000;
+  --bg-color: #FFFFFF;
+  --accent-font: 'Press Start 2P';
+  --main-font: 'Inter';
+  --title-weihgt: 700;
+  --text-weight:400;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent-color: #000000;
+    --bg-color: #FFFFFF;
+    --accent-font: 'Press Start 2P';
+    --main-font: 'Inter';
+    --title-weihgt: 700;
+    --text-weight:400;
+    --bg-image:
+    repeating-linear-gradient(
+      #d3d3d3 0px,
+      transparent  2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #d3d3d3 0px,
+      transparent  2px
+    ),
+    linear-gradient(to bottom,#e7e7e7, #1a1a1a);
+  }
+}
+
+:root.theme-dark {
+  --accent-color: #00CC14;
+  --bg-color: #000000;
+  --accent-font: 'Press Start 2P';
+  --main-font: 'Inter';
+  --title-weihgt: 785;
+  --text-weight:465;
+  --bg-image:
+    repeating-linear-gradient(
+      #000 0px,
+      transparent  2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #000 0px,
+      transparent  2px
+    ),
+    linear-gradient(to bottom,#007f0c, #004306);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent-color: #00CC14;
+    --bg-color: #000000;
+    --accent-font: 'Press Start 2P';
+    --main-font: 'Inter';
+    --title-weihgt: 785;
+    --text-weight:465;
+    --bg-image:
+    repeating-linear-gradient(
+      #000 0px,
+      transparent  2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #000 0px,
+      transparent  2px
+    ),
+    linear-gradient(to bottom,#007f0c, #004306);
+  }
+}
