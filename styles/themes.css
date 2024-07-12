@@ -53,6 +53,8 @@
       transparent  2px
     ),
     linear-gradient(to bottom,#007f0c, #004306);
+    --watermark-stroke: black;
+    --watermark-fill: #00CC14;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -74,5 +76,8 @@
       transparent  2px
     ),
     linear-gradient(to bottom,#007f0c, #004306);
+    --watermark-stroke: black;
+    --watermark-fill: #00CC14;
   }
+  
 }
