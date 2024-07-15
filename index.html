@@ -17,7 +17,7 @@
     <script src="./scripts/set-theme.js"></script>
   </head>
   <body class="page">
-    <header class="header">
+    <header class="header header__size">
       <h1 class="header__title">&lt;/HTML&gt;</h1>
       <h2 class="header__subtitle">закрывающий тег</h2>
       <nav class="theme-menu header__theme-menu">
@@ -47,23 +47,23 @@
       </nav>
     </header>
     <main class="content">
-      <section class="content__section content__section-size">
+      <section class="card card__size">
         <h3 class="card__title">Фритрек и нулевой спринт: Подготовка к работе</h3>
         <div class="card__image">
           <img 
-          class="section__picture"
+          class="card__image-main"
           src="./images/image.png" 
           loading="lazy"
           alt="Автобус"
           > 
           <p class="card__lable">&lt;/HTML&gt;</p>
         </div>
-        <div class="card__text">
-          <p>Это было самое начало пути. На этом этапе важно было 
+        <div class="card__info">
+          <p class="card__text">Это было самое начало пути. На этом этапе важно было 
             проникнуться основами и настроиться на учёбу. 
             И, возможно, подумать, как новые знания могут повлиять 
             на ваше будущее.</p>
-            <p>Место для ваших воспоминаний о начале обучения.</p>
+            <p class="card__text">Место для ваших воспоминаний о начале обучения.</p>
             <div class="icon__button">
               <button class="card__icon-button">
                 <svg class="like-icon is-liked" width="39" height="36" viewBox="0 0 39 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,28 +79,36 @@
             </div>
           
         </div>
-        
       </section>
-
-      <section class="content__section content__section-popup">
+      <section class="card card__popup">   
         <button 
-          class="content__section-button"
+          class="popup__button"
           type="button"
           onclick="window['dialog-id'].showModal();"
-          aria-controls="dialog-id"
-          >
-          <svg class="button_icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          aria-controls="dialog-id">
+          <svg class="button__icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
             <use href="./svg/floppy.svg#floppy"/>
           </svg>
-            <span class="button__text">Сохранить на память</span>
-        </button>       
+          <span class="button__text">Сохранить на память</span>
+        </button>
       </section>
-      <dialog id="dialog-id">
-        <svg class="popup_icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <use href="./svg/floppy.svg#floppy"/>
-        </svg>
-          <span class="button__text">Вставьте дискету, чтобы продолжить</span>
-          <button class="dialog__button">ок</button>
+      <dialog 
+        id="dialog-id">
+        <form class="form__dialog">
+          <div class="form__dialog-text">
+            <svg class="popup__icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <use href="./svg/floppy.svg#floppy"/>
+            </svg>
+            <span class="form__dialog-text-icon">Вставьте дискету, чтобы продолжить</span> 
+          </div>
+          <button 
+            class="dialog__close"
+            type="button"
+            onclick="window['dialog-id'].close();"
+            aria-controls="dialog-id">
+            ок
+          </button>  
+        </form>
       </dialog>
     </main>
     <script src="./scripts/like.js"></script>

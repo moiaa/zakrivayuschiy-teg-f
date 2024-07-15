@@ -15,9 +15,8 @@
 */
 
 .page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-content: center;
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font), sans-serif;
@@ -28,6 +27,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin: calc(var(--main-gap) * 2) 0;
+  gap: 100px;
 }
 .header {
   display: flex;
@@ -36,8 +36,12 @@
   font-family: var(--accent-font);
   background-color: var(--bg-color);
   border: 2px solid var(--accent-color);
-  margin-bottom: calc(var(--main-gap) * 2);
   padding: 120px 14px 0;
+}
+
+.header__size {
+  max-inline-size: 100vw;
+  max-block-size: 327px;
 }
 
 .header__title {
@@ -47,27 +51,76 @@
 
 .header__subtitle {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
 }
 
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 14px;
+  gap: 11px;
   padding: calc(var(--main-gap) / 2) 0;
 }
 
 .theme-menu__button {
+  position: relative;
   font-family: var(--accent-font);
   font-size: var(--accent-text-sise);
+  text-transform: uppercase;
 }
 
-button:disabled {
-  opacity: 0.6;
+.theme-menu__button:disabled {
+  animation: opacity 0.3s ease forwards;
+  pointer-events: none;
 }
 
-button:disabled::before {
+.theme-menu__button:disabled::before {
   content: "▶";
+  position: absolute;
+  left: -20px;
+  animation: rect 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes rect {
+  from {
+    left: -20px;
+  }
+  to {
+    left: -25px;
+  }
+}
+
+.theme-menu__button:hover {
+  animation: opacity 0.3s ease forwards;
+  cursor: pointer;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+  animation: opacity 0.3s ease forwards;
+}
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin:0%;
+  transition: transform 0.3s;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform-origin:0%;
+  transform: scaleX(1);
+  transition: transform 0.3s;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
 }
 
 .content {
@@ -77,10 +130,10 @@ button:disabled::before {
   gap: var(--main-gap);
 }
 
-.content__section {
+.card {
   background-color: var(--bg-color);
 }
-.content__section-size {
+.card__size {
   max-inline-size: 100vw;
 }
 
@@ -89,13 +142,15 @@ button:disabled::before {
   border-bottom: none;
   padding: 4px calc(var(--main-gap) / 5);
   font-size: 18px;
+  line-height: 22px;
 }
+
 .card__image {
   position: relative;
   border: 2px solid var(--accent-color);
 }
 
-.section__picture {
+.card__image-main {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
@@ -123,13 +178,19 @@ button:disabled::before {
   }
 }
 
-.card__text {
+.card__info {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--main-gap) / 2);
+  gap: 26px;
   border: 2px solid var(--accent-color);
   border-top: none;
-  padding: calc(var(--main-gap) / 2);
+  padding: 26px;
+}
+
+.card__text {
+  font-family: var(--main-font);
+  font-size: 18px;
+  line-height: 21px;
 }
 
 .icon__button {
@@ -153,54 +214,161 @@ button:disabled::before {
 }
 
 .card__like-button {
-  outline: 2px solid var(--accent-color);
-  padding: 5px 35px;
+  position: relative;
+  border: 2px solid var(--accent-color);
+  inline-size: 130px;
+  block-size: 38px;
+}
 
+.card__like-button:focus-visible {
+  outline: none;
+  animation: shadow 0.3s ease forwards normal;
+}
+@keyframes shadow {
+  from {
+    box-shadow: 2px 2px 1 var(--accent-color);
+  }
+  to {
+    box-shadow: 2px 2px 0 var(--accent-color);
+  }
+}
+.card__like-button::after {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin:0%;
+  transition: transform 0.3s;
+}
+
+.card__like-button:hover::after {
+  transform-origin:0%;
+  transform: scaleX(1);
+  transition: transform 0.3s;
 }
 
 .button__text {
   font-family: var(--accent-font);
   font-size: var(--accent-text-sise);
-  text-transform: uppercase;
+  text-transform: none;
 }
 
+.form__dialog-text-icon {
+  font-family: var(--accent-font);
+  font-size: var(--accent-text-sise);
+  text-transform: uppercase;
+  line-height: 21px;
+}
 
-.content__section-popup {
+.card__popup {
   align-items: center;
   border: 2px solid var(--accent-color);
-  inline-size: 306px;
-  block-size: 80px;
-
+  min-inline-size: 307px;
+  block-size: 85px;
 }
 
-.content__section-button {
+.popup__button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  inline-size: 100%;
+  block-size: 100%;
   gap: 8px;
-  padding: 15px;
+  padding: 14px 15px 10px 18px;
 }
 
-.button_icon {
+.popup__button:focus-visible {
+  outline: none;
+  animation: shadowtwo 0.3s ease forwards normal;
+}
+
+@keyframes shadowtwo {
+  from {
+    box-shadow: 4px 4px 1 var(--accent-color);
+  }
+  to {
+    box-shadow: 4px 4px 0 var(--accent-color);
+  }
+}
+
+.button__icon {
   inline-size: 28px;
   block-size: 28px;
 }
 
-.popup_icon {
+.popup__icon {
   inline-size: 39px;
   block-size: 39px;
+  align-self: center;
 }
 
-.dialog__button {
+.form__dialog-text {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+}
+ 
+.button__text {
+  font-family: var(--accent-font);
+  font-size: var(--accent-text-sise);
+  line-height: 21px;
+  text-transform: none;
+}
+
+dialog {
+  min-inline-size: 340px;
+  min-block-size: 190px;
+  padding: 0;
+}
+
+.form__dialog {
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dialog__close {
   font-family: var(--accent-font);
   font-size: var(--accent-text-sise);
   text-transform: uppercase;
   border: 2px solid var(--accent-color);
+  inline-size: 257px;
+  block-size: 38px;
+  align-self: center;
 }
 
-@media (width >= 375px) {
-  .content__section-size {
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+@media (width > 375px) {
+  .header__size {
+    max-inline-size: 696px;
+    max-block-size: 368px;
+    padding-top: 136px;
+  }
+
+  .card__size {
     max-inline-size: 696px;
   }
 
+  .card__popup {
+    inline-size: 355px;
+    max-block-size: 55px;
+  }
+
+  .button__icon {
+    inline-size: 21px;
+    block-size: 21px;
+  }
+
+  .popup__button {
+    flex-direction: row;
+    padding: 15px 20px;
+  }
 }
