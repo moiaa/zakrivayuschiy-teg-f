@@ -21,5 +21,7 @@
   --accent-text-sise: 14px;
   --watermark-stroke: white;
   --watermark-fill: black;
+  --text-difference: white;
+  --heart-color:#FF0000;
 
 }
