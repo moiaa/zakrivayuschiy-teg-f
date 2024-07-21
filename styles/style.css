@@ -280,7 +280,7 @@
   transition: fill .5s .3ms;
 }
 
-.like-icon:active .core { /* active */
+.like-icon:active .core {
   fill: var(--heart-color);
   transition: fill .3s;
 }
@@ -290,7 +290,7 @@
   transition: fill .5s .3ms;
 }
 
-.like-icon.is-liked .core{ /* click */
+.like-icon.is-liked .core {
   fill: var(--heart-color);
   transition: fill .3s;
 }
@@ -456,7 +456,6 @@
 }
 
 .button__icon {
-  z-index: 1;
   inline-size: 28px;
   block-size: 28px;
   z-index: 2;
