@@ -23,5 +23,6 @@
   --watermark-fill: black;
   --text-difference: white;
   --heart-color:#FF0000;
+  --accent-opasity-color:rgba(0, 0, 0, .6);
 
 }

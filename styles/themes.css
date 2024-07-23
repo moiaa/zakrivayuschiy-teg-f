@@ -28,6 +28,7 @@
     --watermark-fill: black;
     --text-difference: white;
     --heart-color:#FF0000;
+    --accent-opasity-color:rgba(0, 0, 0, .6);
 }
 
 @media (prefers-color-scheme: light) {
@@ -55,6 +56,7 @@
     --watermark-fill: black;
     --text-difference: white;
     --heart-color:#FF0000;
+    --accent-opasity-color:rgba(0, 0, 0, .6);
   }
   
 }
@@ -81,6 +83,7 @@
   --watermark-fill: #00CC14;
   --text-difference: #00CC14;
   --heart-color:#FF0000;
+  --accent-opasity-color: rgb(0, 204, 20, .6);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -106,5 +109,6 @@
     --watermark-fill: #00CC14;
     --text-difference: #00CC14;
     --heart-color:#FF0000;
+    --accent-opasity-color: rgb(0, 204, 20, .6);
   }
 }
