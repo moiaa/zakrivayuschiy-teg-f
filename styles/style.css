@@ -132,6 +132,7 @@
   border-bottom: none;
   padding: 4px calc(var(--main-gap) / 5);
   font-size: 18px;
+  font-variation-settings: "wght" var(--title-weihgt);
   line-height: 22px;
 }
 
@@ -179,6 +180,7 @@
 
 .card__text {
   font-family: var(--main-font), sans-serif;
+  font-variation-settings: "wght" var(--text-weight);
   font-size: 18px;
   line-height: 21px;
 }
@@ -221,21 +223,6 @@
   inline-size: 41px;
   z-index: 1;
 } 
-
-.contour {
-  fill: var(--accent-color);
-  transition: fill .1s linear;
-}
-
-.main-body {
-  fill: none;
-  transition: fill .3s linear;
-}
-
-.core {
-  fill: none;
-  transition: fill .3s linear .03s;
-}
 
 .sparks {
   fill: var(--heart-color);
@@ -284,7 +271,7 @@
 
 .like-icon.is-liked .main-body {
   fill: var(--heart-color);
-  transition: fill .3s linear .03s;
+  transition: fill .3s linear .05s;
 }
 
 .like-icon.is-liked .contour {
